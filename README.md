@@ -1,5 +1,5 @@
 # predict-airbnb-prices
-As a part of the Data Science team at 'StayWise'(a fictional vacation rental platform) that aims to enhance its pricing system to help hosts set competitive rates. 
+'StayWise'(a fictional vacation rental platform) wants to predict the optimal nightly price for new listings based on factors such as location, amenities, and reviews.
 All listing and booking data are stored in AWS S3, and the data science workflow uses MLflow for experiment tracking and model management.
 
 # Project structure
