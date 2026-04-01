@@ -1,9 +1,0 @@
-README.md
-setup.py
-predict_airbnb_prices.egg-info/PKG-INFO
-predict_airbnb_prices.egg-info/SOURCES.txt
-predict_airbnb_prices.egg-info/dependency_links.txt
-predict_airbnb_prices.egg-info/top_level.txt
-src/__init__.py
-src/ingest.py
-src/preprocess.py

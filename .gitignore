@@ -6,3 +6,16 @@ venv/
 
 # pycache
 __pycache__/
+
+# MLflow
+mlruns/
+mlflow.db
+mlartifacts/
+*.mlflow
+
+# Package metadata and build artifacts
+*.egg-info/
+*.egg
+
+# Model outputs and experiment artifacts
+*.csv 

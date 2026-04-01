@@ -1,18 +1,46 @@
 # predict-airbnb-prices
-'StayWise'(a fictional vacation rental platform) wants to predict the optimal nightly price for new listings based on factors such as location, amenities, and reviews.
-All listing and booking data are stored in AWS S3, and the data science workflow uses MLflow for experiment tracking and model management.
+An end-to-end Machine Learning pipeline to predict nightly listing prices using XGBoost, Random Forest, and Ridge Regression, tracked via MLflow.
+
+# Project Architecture
+* Ingestion: Pulls raw 2019 NYC Airbnb data from AWS S3.
+
+* Preprocessing: Handles log-transformation of price, target encoding for 221 neighborhoods, and robust scaling.
+
+* Experiment Tracking: Uses MLflow to log parameters, metrics (RMSE, MAE, R², MAPE), and model artifacts.
 
 # Project structure
 ```
 predict-airbnb-prices
-├── data/              
 ├── notebooks/      
 │   ├── eda.ipynb    
+├── screenshots/        # Contains screenshots of important project checkpoints
+│   ├── mlflow/     
 ├── src/                # All Python source code (.py files)
 │   ├── ingest.py       
 │   ├── preprocess.py   
-│   └── train.py        
-├── mlruns/             # for MLflow
+│   └── train.py      
+└── main.py             # start point of experiment pipeline  
+├── mlruns/             # generated for MLflow
 ├── requirements.txt    
-└── main.py             
+└── README.md
+└── setup.py     
+
+```
+
+# How to Run
+## 1. Setup Environment (external depenedencies + ):
+
+```
+pip install -r requirements.txt
+pip install -e .
+```
+
+## 2. Execute Pipeline:
+```
+python main.py
+```
+
+## 3. View Dashboard:
+```
+mlflow ui
 ```
