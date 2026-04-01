@@ -3,6 +3,20 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
+def split_data(df):
+    """
+    Splits data into 80% Train, 10% Validation, and 10% Test.
+    ~ Train(39116), Val(4889), Test(4890)
+    """
+    # Split 80% Train and 20% Remainder
+    train_df, remainder_df = train_test_split(df, test_size=0.2, random_state=42)
+    
+    # Split the 20% Remainder into 10% Val and 10% Test
+    val_df, test_df = train_test_split(remainder_df, test_size=0.5, random_state=42)
+    
+    print(f"Split complete: Train({len(train_df)}), Val({len(val_df)}), Test({len(test_df)})")
+    return train_df, val_df, test_df
+
 def preprocess_pipeline(train_df, val_df, test_df):
     """
     Stateful preprocessing: Fits only on training data to prevent leakage.
@@ -33,21 +47,25 @@ def preprocess_pipeline(train_df, val_df, test_df):
         temp['room_type'] = temp['room_type'].map(room_map)
 
         # Drop columns that are not useful for modeling
-        cols_to_drop = ['id', 'host_id', 'name', 'host_name', 'last_review', 'latitude', 'longitude', 'price', 'availability_365']
+        cols_to_drop = [
+            # non-informative
+            'id', 'host_id', 'name', 'host_name', 'last_review', 'latitude', 'longitude',
+            # since we keep 'price_log' and 'availability_ratio', we drop the original columns 
+                         'price', 'availability_365'] 
         
         return temp.drop(columns=cols_to_drop)
 
     train_base = basic_clean(train_df)
     val_base = basic_clean(val_df)
     test_base = basic_clean(test_df)
-    
+
 
     # --------- 2. STATEFUL: TARGET ENCODING for "neighbourhood" (221 unique values)
     # Calculate means from TRAIN data only, then apply to all three
     target_means = train_base.groupby('neighbourhood')['price_log'].mean()
 
 
-    # we might encounter a "Neighbourhood" in the Test dataset that never appeared in your Training set.
+    # we might encounter a "Neighbourhood" in the Test dataset that never appeared in Training dataset.
     # Since target_means won't have a value for it, we use the global_mean as a safe fallback.
     global_mean = train_base['price_log'].mean()
 
