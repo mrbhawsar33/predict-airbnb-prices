@@ -54,21 +54,21 @@ predict-airbnb-prices
 # Screenshots of MLflow UI
 
 1. Experiment runs
-![experiment runs](screenshots\mlflow\mlflow_runs.png)
+![experiment runs](screenshots/mlflow/mlflow_runs.png)
 
 2. Metrics
 
     a. Ridge 
-    ![ridge metrics](screenshots\mlflow\model1_ridge\mlflow_model_ridge_metrics.png)
+    ![ridge metrics](screenshots/mlflow/model1_ridge/mlflow_model_ridge_metrics.png)
 
     b. Random Forest
-    ![randomforest metrics](screenshots\mlflow\model2_randomforest\mlflow_model_randomforest_metrics.png)
+    ![randomforest metrics](screenshots/mlflow/model2_randomforest/mlflow_model_randomforest_metrics.png)
 
     c. XG Boost
-    ![xgboost metrics](screenshots\mlflow\model3_xgboost\mlflow_model_xgboost_metrics.png)
+    ![xgboost metrics](screenshots/mlflow/model3_xgboost/mlflow_model_xgboost_metrics.png)
 
 3. Model registry
-![model registry](screenshots\mlflow\mlflow_modelregistry.png)
+![model registry](screenshots/mlflow/mlflow_modelregistry.png)
 
 *more screenshots like parameters and artifacts (including feature_importance in tree-based models) are available in screenshots/*
 
