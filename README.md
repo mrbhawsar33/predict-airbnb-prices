@@ -82,19 +82,25 @@ predict-airbnb-prices
 1. Ridge (Worst performance)
 
     Val R²: 0.5556 (55.56%)
+
     Val MAPE: 7.07%
+
     Train R²: 0.5421 -> Overfitting gap: -0.014 (underfitting)
 
 2. Random Forest
 
     Val R²: 0.6174 (61.74%)
+
     Val MAPE: 6.48%
+
     Train R²: 0.7776 -> Overfitting gap: 0.160 (comparatively high overfitting)
 
 3. XGBoost (Best performance)
 
     Val R²: 0.6237 (62.37% explains the most amongst all models used)
+
     Val MAPE: 6.45%
+    
     Train R²: 0.6523 -> Overfitting gap: 0.029
 
 ## Insights:
