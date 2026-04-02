@@ -70,7 +70,7 @@ predict-airbnb-prices
 3. Model registry
 ![model registry](screenshots/mlflow/mlflow_modelregistry.png)
 
-*more screenshots like parameters and artifacts (including feature_importance in tree-based models) are available in screenshots/*
+*more screenshots (like parameters) are available in screenshots/*
 
 
 # Key observations and insights:
@@ -100,7 +100,7 @@ predict-airbnb-prices
     Val R²: 0.6237 (62.37% explains the most amongst all models used)
 
     Val MAPE: 6.45%
-    
+
     Train R²: 0.6523 -> Overfitting gap: 0.029
 
 ## Insights:
